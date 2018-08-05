@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginScreenExternalFragment">
+
+    <fragment
+        android:id="@+id/loginScreenExternalFragment"
+        android:name="com.vysocki.yuri.microblog_exposit.fragments.external.LoginScreenExternalFragment"
+        android:label="fragment_login_screen"
+        tools:layout="@layout/fragment_external">
+        <action
+            android:id="@+id/action_loginScreenExternalFragment_to_notesExternalFragment"
+            app:destination="@id/notesExternalFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:clearTask="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/notesExternalFragment"
+        android:name="com.vysocki.yuri.microblog_exposit.fragments.external.NotesExternalFragment"
+        android:label="fragment_notes_list"
+        tools:layout="@layout/fragment_external" />
+
+    <fragment
+        android:id="@+id/notesDetailExternalFragment"
+        android:name="com.vysocki.yuri.microblog_exposit.fragments.external.NotesDetailExternalFragment"
+        android:label="fragment_notes_detail"
+        tools:layout="@layout/fragment_external" />
+
+    <fragment
+        android:id="@+id/userProfileExternalFragment"
+        android:name="com.vysocki.yuri.microblog_exposit.fragments.external.UserProfileExternalFragment"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_external" />
+
+</navigation>

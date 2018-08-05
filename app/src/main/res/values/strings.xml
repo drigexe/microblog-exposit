@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Micro blog</string>
+    <string name="login_button">Log in</string>
+</resources>
