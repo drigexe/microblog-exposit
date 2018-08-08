@@ -42,9 +42,10 @@ public class MainActivity extends AppCompatActivity {
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        if (tokenExist) {
+        //add later to check if any user is currently logged in up already
+        /*if (tokenExist) {
             navController.navigate(R.id.action_loginScreenExternalFragment_to_notesExternalFragment);
-        }
+        }*/
 
     }
 

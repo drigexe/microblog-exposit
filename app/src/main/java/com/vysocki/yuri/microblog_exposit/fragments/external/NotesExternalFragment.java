@@ -25,16 +25,18 @@ public class NotesExternalFragment extends ExternalFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_external, container, false);
 
+        //load the NotesListFragment
         NotesListFragment notesListFragment = new NotesListFragment();
         setInternalFragment(R.id.fragment_container, notesListFragment, transaction);
 
+        //if device is in landscape orientation then load the NotesDetailFragment
         secondContainerLayout = view.findViewById(R.id.fragment_second_container);
         if (secondContainerLayout != null) {
 
             LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.MATCH_PARENT,
-                    1
+                    0.5f
             );
 
             secondContainerLayout.setLayoutParams(param);

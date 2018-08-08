@@ -4,10 +4,27 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/notetextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="40sp"
-        android:text="LIST OF NOTES"
+        android:text="LIST"
         android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/buttonresult1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/notetextview"
+        android:layout_centerHorizontal="true"
+        android:text="result 1" />
+
+    <Button
+        android:id="@+id/buttonresult2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonresult1"
+        android:layout_centerHorizontal="true"
+        android:text="result 1" />
 
 </RelativeLayout>
