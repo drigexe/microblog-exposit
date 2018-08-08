@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "609810167864",
+    "firebase_url": "https://microblog-exposit.firebaseio.com",
+    "project_id": "microblog-exposit",
+    "storage_bucket": "microblog-exposit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609810167864:android:d2bbbfd9b3547a2b",
+        "android_client_info": {
+          "package_name": "com.vysocki.yuri.microblog_exposit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "609810167864-v19dtnieb19ldvmdsddm009cskmjc44n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vysocki.yuri.microblog_exposit",
+            "certificate_hash": "05b7cd5b7f6fa585a6e5dae2b24698f8b74e15a4"
+          }
+        },
+        {
+          "client_id": "609810167864-40ql44grb28j3g6ao00u4b5np3ibqmsi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZeaw0le45R3uWDoYPVY7QO-kw6pQbkHA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "609810167864-40ql44grb28j3g6ao00u4b5np3ibqmsi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
