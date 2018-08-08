@@ -15,14 +15,18 @@ public class NotesDetailExternalFragment extends ExternalFragment {
 
     FragmentTransaction transaction;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        NotesDetailFragment notesDetailFragment = new NotesDetailFragment();
+        setInternalFragment(R.id.fragment_container, notesDetailFragment, transaction);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_external, container, false);
-
-        NotesDetailFragment notesDetailFragment = new NotesDetailFragment();
-
-        setInternalFragment(R.id.fragment_container, notesDetailFragment, transaction);
 
         return view;
     }

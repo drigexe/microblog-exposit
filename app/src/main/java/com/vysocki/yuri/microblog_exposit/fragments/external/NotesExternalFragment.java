@@ -20,14 +20,19 @@ public class NotesExternalFragment extends ExternalFragment {
     FragmentTransaction transaction;
     private ViewGroup secondContainerLayout;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_external, container, false);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         //load the NotesListFragment
         NotesListFragment notesListFragment = new NotesListFragment();
         setInternalFragment(R.id.fragment_container, notesListFragment, transaction);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_external, container, false);
 
         //if device is in landscape orientation then load the NotesDetailFragment
         secondContainerLayout = view.findViewById(R.id.fragment_second_container);

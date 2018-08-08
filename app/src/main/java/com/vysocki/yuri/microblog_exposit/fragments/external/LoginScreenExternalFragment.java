@@ -16,14 +16,18 @@ public class LoginScreenExternalFragment extends ExternalFragment {
 
     FragmentTransaction transaction;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        LoginScreenFragment loginScreenFragment = new LoginScreenFragment();
+        setInternalFragment(R.id.fragment_container, loginScreenFragment, transaction);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_external, container, false);
-
-        LoginScreenFragment loginScreenFragment = new LoginScreenFragment();
-
-        setInternalFragment(R.id.fragment_container, loginScreenFragment, transaction);
 
         return view;
     }
