@@ -25,6 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/buttonresult1"
         android:layout_centerHorizontal="true"
-        android:text="result 1" />
+        android:text="result 2" />
 
 </RelativeLayout>

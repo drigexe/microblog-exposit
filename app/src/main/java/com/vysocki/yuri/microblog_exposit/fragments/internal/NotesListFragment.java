@@ -1,5 +1,6 @@
 package com.vysocki.yuri.microblog_exposit.fragments.internal;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,22 +11,26 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.vysocki.yuri.microblog_exposit.MainActivity;
+import com.vysocki.yuri.microblog_exposit.Note;
 import com.vysocki.yuri.microblog_exposit.R;
+import com.vysocki.yuri.microblog_exposit.SharedViewModel;
 
 public class NotesListFragment extends Fragment {
+
+    private SharedViewModel viewModel;
 
     TextView textView;
     Button button1;
     Button button2;
+    String text;
 
-    DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference mNoteRef = mRootRef.child("note");
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        viewModel = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
+    }
 
     @Nullable
     @Override
@@ -36,6 +41,26 @@ public class NotesListFragment extends Fragment {
         button1 = view.findViewById(R.id.buttonresult1);
         button2 = view.findViewById(R.id.buttonresult2);
 
+        text = textView.getText().toString();
+        final Note note = new Note();
+        note.setNoteText(text);
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewModel.setNote(note);
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textView.setText("Another text");
+                text = textView.getText().toString();
+                note.setNoteText(text);
+            }
+        });
+
         return view;
     }
 
@@ -45,36 +70,4 @@ public class NotesListFragment extends Fragment {
         ((MainActivity)getActivity()).toggleDrawer(false);
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        mNoteRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String noteText = dataSnapshot.getValue(String.class);
-                textView.setText(noteText);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mNoteRef.setValue("button 1");
-            }
-        });
-
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mNoteRef.setValue("button 2");
-            }
-        });
-
-    }
 }

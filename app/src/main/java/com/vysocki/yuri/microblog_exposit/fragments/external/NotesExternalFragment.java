@@ -36,7 +36,7 @@ public class NotesExternalFragment extends ExternalFragment {
             LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.MATCH_PARENT,
-                    0.5f
+                    1f
             );
 
             secondContainerLayout.setLayoutParams(param);
