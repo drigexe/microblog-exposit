@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.vysocki.yuri.microblog_exposit.R;
@@ -33,6 +32,7 @@ public class NotesExternalFragment extends ExternalFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_external, container, false);
+
 
         //if device is in landscape orientation then load the NotesDetailFragment
         secondContainerLayout = view.findViewById(R.id.fragment_second_container);

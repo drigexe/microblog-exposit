@@ -21,7 +21,6 @@ public class NotesDetailFragment extends Fragment {
     SharedViewModel viewModel;
 
     TextView textView;
-    Button button;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,11 +35,11 @@ public class NotesDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_notes_detail, container, false);
 
         textView = view.findViewById(R.id.detailtextview);
-        button = view.findViewById(R.id.buttondetail);
 
         Observer<Note> noteObserver = new Observer<Note>() {
             @Override
             public void onChanged(@Nullable Note note) {
+                //update UI
                 textView.setText(note.getNoteText());
             }
         };
