@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.vysocki.yuri.microblog_exposit.Note;
@@ -22,8 +23,6 @@ public class NotesDetailFragment extends Fragment {
 
     SharedViewModel viewModel;
 
-    TextView textView1;
-    TextView textView2;
     Button button;
 
     @Override
@@ -38,9 +37,9 @@ public class NotesDetailFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notes_detail, container, false);
 
-        textView1 = view.findViewById(R.id.themeDetail);
-        textView2 = view.findViewById(R.id.dateDetail);
-        button = view.findViewById(R.id.sendButton);
+        button = view.findViewById(R.id.saveNoteButton);
+        RelativeLayout relativeLayout = view.findViewById(R.id.detailLayout);
+        //relativeLayout.setVisibility(View.INVISIBLE);
 
         Observer<Note> noteObserver = new Observer<Note>() {
             @Override
@@ -52,11 +51,9 @@ public class NotesDetailFragment extends Fragment {
         viewModel.getNote().observe(this, noteObserver);
 
 
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //viewModel.setNote(noteArrayList);
             }
         });
