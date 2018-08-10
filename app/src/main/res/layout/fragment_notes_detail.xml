@@ -2,15 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/detailLayout">
+    android:id="@+id/detailLayout"
+    >
 
     <TextView
         android:id="@+id/themeDetailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
@@ -22,21 +22,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/themeDetailTextView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:ems="15"
         android:inputType="textShortMessage"
-        android:enabled="false"/>
+        android:maxLength="20"
+        android:enabled="true"/>
 
     <TextView
         android:id="@+id/textDetailTextView"
         android:layout_below="@+id/themeDetailEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
@@ -48,14 +47,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textDetailTextView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:ems="15"
         android:inputType="textMultiLine"
         android:maxLength="100"
-        android:enabled="false"/>
+        android:enabled="true"/>
 
     <Button
         android:layout_centerHorizontal="true"

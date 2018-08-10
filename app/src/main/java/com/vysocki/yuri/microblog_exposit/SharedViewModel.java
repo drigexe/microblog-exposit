@@ -18,5 +18,9 @@ public class SharedViewModel extends ViewModel {
         return this.note;
     }
 
+    public void clearNote() {
+        this.note.setValue(null);
+    }
+
 }
 

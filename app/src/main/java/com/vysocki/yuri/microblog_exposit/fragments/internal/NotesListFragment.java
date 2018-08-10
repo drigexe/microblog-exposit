@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.vysocki.yuri.microblog_exposit.MainActivity;
+import com.vysocki.yuri.microblog_exposit.Note;
 import com.vysocki.yuri.microblog_exposit.NotesRecyclerViewAdapter;
 import com.vysocki.yuri.microblog_exposit.R;
 import com.vysocki.yuri.microblog_exposit.RecyclerItemClickListener;
@@ -54,7 +55,6 @@ public class NotesListFragment extends Fragment {
     }
 
     public void initNoteArrays() {
-        //get note items from viewmodel and add them to the mNoteThemes and mNoteDates
         mNoteThemes.add("item 0");
         mNoteThemes.add("item 1");
         mNoteThemes.add("item 2");
@@ -76,7 +76,10 @@ public class NotesListFragment extends Fragment {
                 new RecyclerItemClickListener(getActivity(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-
+                        Note note = new Note();
+                        note.setNoteText("rerorero");
+                        note.setNoteTheme("Kakyoin");
+                        viewModel.setNote(note);
                     }
 
                     @Override

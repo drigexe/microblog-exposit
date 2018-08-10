@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 
 import com.vysocki.yuri.microblog_exposit.Note;
 import com.vysocki.yuri.microblog_exposit.R;
@@ -21,7 +20,6 @@ public class NotesDetailFragment extends Fragment {
 
     SharedViewModel viewModel;
 
-    RelativeLayout relativeLayout;
     Button saveButton;
     EditText noteThemeText;
     EditText noteText;
@@ -41,27 +39,61 @@ public class NotesDetailFragment extends Fragment {
         noteThemeText = view.findViewById(R.id.themeDetailEditText);
         noteText = view.findViewById(R.id.textDetailEditText);
         saveButton = view.findViewById(R.id.saveNoteButton);
-        relativeLayout = view.findViewById(R.id.detailLayout);
-        //relativeLayout.setVisibility(View.INVISIBLE);
-        //noteText.setEnabled(true);
 
         Observer<Note> noteObserver = new Observer<Note>() {
             @Override
             public void onChanged(@Nullable Note note) {
-                // update the UI
+                if (viewModel.getNote().getValue() != null) {
+                    lockUi(true);
+                    noteThemeText.setText(note.getNoteTheme());
+                    noteText.setText(note.getNoteText());
+                } else {
+                    clearEditTexts();
+                }
             }
         };
 
         viewModel.getNote().observe(this, noteObserver);
 
-
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //viewModel.setNote(noteArrayList);
+
+                clearEditTexts();
+                viewModel.clearNote();
             }
         });
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        lockUi(false);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        viewModel.clearNote();
+        clearEditTexts();
+    }
+
+    private void clearEditTexts() {
+        noteThemeText.setText(null);
+        noteText.setText(null);
+    }
+
+    private void lockUi (Boolean locked) {
+        if (locked) {
+            noteThemeText.setEnabled(false);
+            noteText.setEnabled(false);
+            saveButton.setVisibility(View.INVISIBLE);
+        } else {
+            noteThemeText.setEnabled(true);
+            noteText.setEnabled(true);
+            saveButton.setVisibility(View.VISIBLE);
+        }
     }
 }
