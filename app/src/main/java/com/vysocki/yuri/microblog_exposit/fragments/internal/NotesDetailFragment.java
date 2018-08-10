@@ -16,11 +16,15 @@ import com.vysocki.yuri.microblog_exposit.Note;
 import com.vysocki.yuri.microblog_exposit.R;
 import com.vysocki.yuri.microblog_exposit.SharedViewModel;
 
+import java.util.ArrayList;
+
 public class NotesDetailFragment extends Fragment {
 
     SharedViewModel viewModel;
 
-    TextView textView;
+    TextView textView1;
+    TextView textView2;
+    Button button;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,17 +38,28 @@ public class NotesDetailFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notes_detail, container, false);
 
-        textView = view.findViewById(R.id.detailtextview);
+        textView1 = view.findViewById(R.id.themeDetail);
+        textView2 = view.findViewById(R.id.dateDetail);
+        button = view.findViewById(R.id.sendButton);
 
         Observer<Note> noteObserver = new Observer<Note>() {
             @Override
             public void onChanged(@Nullable Note note) {
-                //update UI
-                textView.setText(note.getNoteText());
+                // update the UI
             }
         };
 
         viewModel.getNote().observe(this, noteObserver);
+
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //viewModel.setNote(noteArrayList);
+            }
+        });
 
         return view;
     }

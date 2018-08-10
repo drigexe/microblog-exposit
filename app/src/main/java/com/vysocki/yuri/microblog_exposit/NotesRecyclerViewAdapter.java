@@ -41,12 +41,6 @@ public class NotesRecyclerViewAdapter extends RecyclerView.Adapter<NotesRecycler
         holder.themeTextView.setText(mNoteThemes.get(position));
         holder.dateTextView.setText(mNoteDates.get(position));
 
-        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "onClick: clicled on" + mNoteThemes.get(position));
-            }
-        });
     }
 
     @Override

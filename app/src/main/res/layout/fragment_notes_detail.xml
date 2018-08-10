@@ -5,11 +5,28 @@
     android:background="@android:color/holo_blue_bright">
 
     <TextView
-        android:id="@+id/detailtextview"
+        android:id="@+id/themeDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="40sp"
-        android:text="NOTE DETAIL"
+        android:text="Some theme text"
         android:layout_centerInParent="true"/>
+
+    <TextView
+        android:id="@+id/dateDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:text="15.05.2015"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/themeDetail"/>
+
+    <Button
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/dateDetail"
+        android:id="@+id/sendButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="send"/>
 
 </RelativeLayout>

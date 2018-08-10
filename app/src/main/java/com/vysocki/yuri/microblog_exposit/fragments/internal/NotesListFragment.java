@@ -13,9 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.vysocki.yuri.microblog_exposit.MainActivity;
-import com.vysocki.yuri.microblog_exposit.Note;
 import com.vysocki.yuri.microblog_exposit.NotesRecyclerViewAdapter;
 import com.vysocki.yuri.microblog_exposit.R;
+import com.vysocki.yuri.microblog_exposit.RecyclerItemClickListener;
 import com.vysocki.yuri.microblog_exposit.SharedViewModel;
 
 import java.util.ArrayList;
@@ -28,8 +28,6 @@ public class NotesListFragment extends Fragment {
     private ArrayList<String> mNoteDates = new ArrayList<>();
 
     private SharedViewModel viewModel;
-
-    private Note note = new Note();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,13 +44,6 @@ public class NotesListFragment extends Fragment {
         initNoteArrays();
         initRecyclerView(view);
 
-        /*button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewModel.setNote(note);
-            }
-        });*/
-
         return view;
     }
 
@@ -63,37 +54,14 @@ public class NotesListFragment extends Fragment {
     }
 
     public void initNoteArrays() {
-        //get mote items from viewmodel and add them to the mNoteThemes and mNoteDates
-        mNoteThemes.add("kokoko");
-        mNoteDates.add("kekasaeke");
-        mNoteThemes.add("kokdsaaoko");
-        mNoteDates.add("kekhgjheke");
-        mNoteThemes.add("kodfgfdkoko");
-        mNoteDates.add("kek54545eke");
-        mNoteThemes.add("kokoko");
-        mNoteDates.add("kekasaeke");
-        mNoteThemes.add("kokdsaaoko");
-        mNoteDates.add("kekhgjheke");
-        mNoteThemes.add("kodfgfdkoko");
-        mNoteDates.add("kek54545eke");
-        mNoteThemes.add("kokoko");
-        mNoteDates.add("kekasaeke");
-        mNoteThemes.add("kokdsaaoko");
-        mNoteDates.add("kekhgjheke");
-        mNoteThemes.add("kodfgfdkoko");
-        mNoteDates.add("kek54545eke");
-        mNoteThemes.add("kokoko");
-        mNoteDates.add("kekasaeke");
-        mNoteThemes.add("kokdsaaoko");
-        mNoteDates.add("kekhgjheke");
-        mNoteThemes.add("kodfgfdkoko");
-        mNoteDates.add("kek54545eke");
-        mNoteThemes.add("kokoko");
-        mNoteDates.add("kekasaeke");
-        mNoteThemes.add("kokdsaaoko");
-        mNoteDates.add("kekhgjheke");
-        mNoteThemes.add("kodfgfdkoko");
-        mNoteDates.add("kek54545eke");
+        //get note items from viewmodel and add them to the mNoteThemes and mNoteDates
+        mNoteThemes.add("item 0");
+        mNoteThemes.add("item 1");
+        mNoteThemes.add("item 2");
+
+        mNoteDates.add("date 0");
+        mNoteDates.add("date 1");
+        mNoteDates.add("date 2");
     }
 
     public void initRecyclerView(View view) {
@@ -103,6 +71,20 @@ public class NotesListFragment extends Fragment {
         NotesRecyclerViewAdapter adapter = new NotesRecyclerViewAdapter(getActivity(), mNoteThemes, mNoteDates);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(getActivity(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+
+                    }
+                })
+        );
     }
 
 }
