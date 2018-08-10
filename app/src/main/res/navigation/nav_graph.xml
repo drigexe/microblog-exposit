@@ -22,13 +22,19 @@
         android:id="@+id/notesExternalFragment"
         android:name="com.vysocki.yuri.microblog_exposit.fragments.external.NotesExternalFragment"
         android:label="fragment_notes_list"
-        tools:layout="@layout/fragment_external" />
+        tools:layout="@layout/fragment_external">
+        <action
+            android:id="@+id/action_notesExternalFragment_to_notesDetailExternalFragment"
+            app:destination="@id/notesDetailExternalFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+    </fragment>
 
     <fragment
         android:id="@+id/notesDetailExternalFragment"
         android:name="com.vysocki.yuri.microblog_exposit.fragments.external.NotesDetailExternalFragment"
         android:label="fragment_notes_detail"
-        tools:layout="@layout/fragment_external" />
+        tools:layout="@layout/fragment_external"/>
 
     <fragment
         android:id="@+id/userProfileExternalFragment"

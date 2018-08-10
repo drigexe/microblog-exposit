@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.vysocki.yuri.microblog_exposit.MainActivity;
 import com.vysocki.yuri.microblog_exposit.R;
 import com.vysocki.yuri.microblog_exposit.fragments.external.ExternalFragment;
 import com.vysocki.yuri.microblog_exposit.fragments.internal.UserProfileFragment;

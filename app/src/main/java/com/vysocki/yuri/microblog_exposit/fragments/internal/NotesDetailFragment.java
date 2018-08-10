@@ -6,15 +6,20 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.vysocki.yuri.microblog_exposit.MainActivity;
 import com.vysocki.yuri.microblog_exposit.Note;
 import com.vysocki.yuri.microblog_exposit.R;
 import com.vysocki.yuri.microblog_exposit.SharedViewModel;
+
+import androidx.navigation.Navigation;
 
 public class NotesDetailFragment extends Fragment {
 
@@ -34,33 +39,18 @@ public class NotesDetailFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_notes_detail, container, false);
+        final View view = inflater.inflate(R.layout.fragment_notes_detail, container, false);
 
         noteThemeText = view.findViewById(R.id.themeDetailEditText);
         noteText = view.findViewById(R.id.textDetailEditText);
         saveButton = view.findViewById(R.id.saveNoteButton);
 
-        Observer<Note> noteObserver = new Observer<Note>() {
-            @Override
-            public void onChanged(@Nullable Note note) {
-                if (viewModel.getNote().getValue() != null) {
-                    lockUi(true);
-                    noteThemeText.setText(note.getNoteTheme());
-                    noteText.setText(note.getNoteText());
-                } else {
-                    clearEditTexts();
-                }
-            }
-        };
-
-        viewModel.getNote().observe(this, noteObserver);
-
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //need to send data to the server here
-
-                viewModel.clearNote();
+                Toast.makeText(getActivity(),"Note created!", Toast.LENGTH_SHORT).show();
+                lockUi(true);
             }
         });
 
@@ -68,17 +58,46 @@ public class NotesDetailFragment extends Fragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        lockUi(false);
-        clearEditTexts();
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        ((MainActivity)getActivity()).toggleDrawer(false);
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
+    public void onResume() {
+        super.onResume();
+
+        if (viewModel.getNote().getValue() != null) {
+            lockUi(true);
+        } else {
+            lockUi(false);
+        }
+
+        Observer<Note> noteObserver = new Observer<Note>() {
+            @Override
+            public void onChanged(@Nullable Note note) {
+                if (viewModel.getNote().getValue() != null) {
+                    //when note is set
+                    lockUi(true);
+                    noteThemeText.setText(note.getNoteTheme());
+                    noteText.setText(note.getNoteText());
+                } else {
+                    // when note is cleared
+                    clearEditTexts();
+                    lockUi(false);
+                }
+            }
+        };
+
+        viewModel.getNote().observe(this, noteObserver);
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
         viewModel.clearNote();
-        clearEditTexts();
+        Log.i("ONPAUSE", "ONPAUSE HAPPENED");
     }
 
     private void clearEditTexts() {

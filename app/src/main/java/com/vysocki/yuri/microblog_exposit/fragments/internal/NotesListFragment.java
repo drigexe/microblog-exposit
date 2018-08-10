@@ -21,6 +21,8 @@ import com.vysocki.yuri.microblog_exposit.SharedViewModel;
 
 import java.util.ArrayList;
 
+import androidx.navigation.Navigation;
+
 public class NotesListFragment extends Fragment {
 
     private static final String TAG = "NotesListFragment";
@@ -35,6 +37,8 @@ public class NotesListFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         viewModel = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
+        initNoteArrays();
+
     }
 
     @Nullable
@@ -42,7 +46,6 @@ public class NotesListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notes_list, container, false);
 
-        initNoteArrays();
         initRecyclerView(view);
 
         return view;
@@ -76,10 +79,20 @@ public class NotesListFragment extends Fragment {
                 new RecyclerItemClickListener(getActivity(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Note note = new Note();
-                        note.setNoteText("rerorero");
-                        note.setNoteTheme("Kakyoin");
-                        viewModel.setNote(note);
+
+                        if (getResources().getBoolean(R.bool.twoPaneMode)) {
+                            Note note = new Note();
+                            note.setNoteText("rerorero");
+                            note.setNoteTheme("Kakyoin");
+                            viewModel.setNote(note);
+                        } else {
+                            Note note = new Note();
+                            note.setNoteText("rerorero");
+                            note.setNoteTheme("Kakyoin");
+                            viewModel.setNote(note);
+                            Navigation.findNavController(view).navigate(R.id.action_notesExternalFragment_to_notesDetailExternalFragment);
+                        }
+
                     }
 
                     @Override

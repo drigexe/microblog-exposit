@@ -21,8 +21,6 @@ public class LoginScreenFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_login_screen, container, false);
 
-        ((MainActivity)getActivity()).toggleDrawer(true);
-
         Button button = view.findViewById(R.id.loginButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,5 +30,11 @@ public class LoginScreenFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        ((MainActivity)getActivity()).toggleDrawer(true);
     }
 }
