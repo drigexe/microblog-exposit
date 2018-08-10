@@ -10,20 +10,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.vysocki.yuri.microblog_exposit.Note;
 import com.vysocki.yuri.microblog_exposit.R;
 import com.vysocki.yuri.microblog_exposit.SharedViewModel;
 
-import java.util.ArrayList;
-
 public class NotesDetailFragment extends Fragment {
 
     SharedViewModel viewModel;
 
-    Button button;
+    RelativeLayout relativeLayout;
+    Button saveButton;
+    EditText noteThemeText;
+    EditText noteText;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,9 +38,12 @@ public class NotesDetailFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notes_detail, container, false);
 
-        button = view.findViewById(R.id.saveNoteButton);
-        RelativeLayout relativeLayout = view.findViewById(R.id.detailLayout);
+        noteThemeText = view.findViewById(R.id.themeDetailEditText);
+        noteText = view.findViewById(R.id.textDetailEditText);
+        saveButton = view.findViewById(R.id.saveNoteButton);
+        relativeLayout = view.findViewById(R.id.detailLayout);
         //relativeLayout.setVisibility(View.INVISIBLE);
+        //noteText.setEnabled(true);
 
         Observer<Note> noteObserver = new Observer<Note>() {
             @Override
@@ -51,7 +55,7 @@ public class NotesDetailFragment extends Fragment {
         viewModel.getNote().observe(this, noteObserver);
 
 
-        button.setOnClickListener(new View.OnClickListener() {
+        saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //viewModel.setNote(noteArrayList);

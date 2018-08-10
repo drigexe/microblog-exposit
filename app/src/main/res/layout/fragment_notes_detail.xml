@@ -55,7 +55,7 @@
         android:ems="15"
         android:inputType="textMultiLine"
         android:maxLength="100"
-        android:enabled="true"/>
+        android:enabled="false"/>
 
     <Button
         android:layout_centerHorizontal="true"
