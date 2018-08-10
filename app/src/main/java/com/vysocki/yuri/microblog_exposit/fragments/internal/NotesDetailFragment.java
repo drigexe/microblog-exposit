@@ -58,8 +58,8 @@ public class NotesDetailFragment extends Fragment {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //need to send data to the server here
 
-                clearEditTexts();
                 viewModel.clearNote();
             }
         });
@@ -71,6 +71,7 @@ public class NotesDetailFragment extends Fragment {
     public void onResume() {
         super.onResume();
         lockUi(false);
+        clearEditTexts();
     }
 
     @Override
