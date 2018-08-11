@@ -16,6 +16,11 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:clearTask="true"/>
+        <action
+            android:id="@+id/action_loginScreenExternalFragment_to_signUpExternalFragment"
+            app:destination="@id/signUpExternalFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
     </fragment>
 
     <fragment
@@ -40,6 +45,12 @@
         android:id="@+id/userProfileExternalFragment"
         android:name="com.vysocki.yuri.microblog_exposit.fragments.external.UserProfileExternalFragment"
         android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_external" />
+
+    <fragment
+        android:id="@+id/signUpExternalFragment"
+        android:name="com.vysocki.yuri.microblog_exposit.fragments.external.SignUpExternalFragment"
+        android:label="fragment_sign_up"
         tools:layout="@layout/fragment_external" />
 
 </navigation>

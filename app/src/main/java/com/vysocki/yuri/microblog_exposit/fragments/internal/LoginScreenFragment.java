@@ -29,7 +29,7 @@ public class LoginScreenFragment extends Fragment {
     EditText emailEditText;
     EditText passwordEditText;
     Button loginButton;
-    Button regButton;
+    Button signUpButton;
 
     @Nullable
     @Override
@@ -39,7 +39,7 @@ public class LoginScreenFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
 
         loginButton = view.findViewById(R.id.loginButton);
-        regButton = view.findViewById(R.id.registrationButton);
+        signUpButton = view.findViewById(R.id.signUpButton);
         emailEditText = view.findViewById(R.id.emailEditText);
         passwordEditText = view.findViewById(R.id.passwordEditText);
 
@@ -62,7 +62,6 @@ public class LoginScreenFragment extends Fragment {
             }
         };
 
-
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,6 +72,13 @@ public class LoginScreenFragment extends Fragment {
                 } else {
                     Toast.makeText(getActivity(), "You didn't fill in all the fields", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_loginScreenExternalFragment_to_signUpExternalFragment);
             }
         });
 

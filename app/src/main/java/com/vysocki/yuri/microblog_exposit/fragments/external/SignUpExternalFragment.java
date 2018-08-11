@@ -9,10 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.vysocki.yuri.microblog_exposit.R;
-import com.vysocki.yuri.microblog_exposit.fragments.external.ExternalFragment;
-import com.vysocki.yuri.microblog_exposit.fragments.internal.LoginScreenFragment;
+import com.vysocki.yuri.microblog_exposit.fragments.internal.SignUpFragment;
 
-public class LoginScreenExternalFragment extends ExternalFragment {
+
+public class SignUpExternalFragment extends ExternalFragment {
 
     FragmentTransaction transaction;
 
@@ -20,8 +20,8 @@ public class LoginScreenExternalFragment extends ExternalFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        LoginScreenFragment loginScreenFragment = new LoginScreenFragment();
-        setInternalFragment(R.id.fragment_container, loginScreenFragment, transaction);
+        SignUpFragment signUpFragment = new SignUpFragment();
+        setInternalFragment(R.id.fragment_container, signUpFragment, transaction);
     }
 
     @Nullable
@@ -31,5 +31,4 @@ public class LoginScreenExternalFragment extends ExternalFragment {
 
         return view;
     }
-
 }
