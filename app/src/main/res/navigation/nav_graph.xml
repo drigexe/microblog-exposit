@@ -42,11 +42,4 @@
         android:label="fragment_user_profile"
         tools:layout="@layout/fragment_external" />
 
-    <action
-        android:id="@+id/to_loginScreenExternalFragment"
-        app:destination="@id/loginScreenExternalFragment"
-        app:enterAnim="@anim/nav_default_enter_anim"
-        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-        app:clearTask="true"/>
-
 </navigation>

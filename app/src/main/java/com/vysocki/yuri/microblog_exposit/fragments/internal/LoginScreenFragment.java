@@ -25,7 +25,6 @@ public class LoginScreenFragment extends Fragment {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private boolean logOutFlag = true;
 
     EditText emailEditText;
     EditText passwordEditText;
@@ -44,9 +43,7 @@ public class LoginScreenFragment extends Fragment {
         emailEditText = view.findViewById(R.id.emailEditText);
         passwordEditText = view.findViewById(R.id.passwordEditText);
 
-        if (!logOutFlag) {
-            mAuth.signOut();
-        }
+        mAuth.signOut();
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -62,7 +59,6 @@ public class LoginScreenFragment extends Fragment {
                     Log.d(TAG, "onAuthStateChanged: signed_out");
                     Toast.makeText(getActivity(), "Signed out ", Toast.LENGTH_SHORT).show();
                 }
-                // ...
             }
         };
 
