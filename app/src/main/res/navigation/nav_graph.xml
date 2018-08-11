@@ -51,6 +51,13 @@
         android:id="@+id/signUpExternalFragment"
         android:name="com.vysocki.yuri.microblog_exposit.fragments.external.SignUpExternalFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_external" />
+        tools:layout="@layout/fragment_external">
+        <action
+            android:id="@+id/action_signUpExternalFragment_to_notesExternalFragment"
+            app:destination="@id/notesExternalFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:clearTask="true"/>
+    </fragment>
 
 </navigation>
