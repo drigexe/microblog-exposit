@@ -1,68 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/detailLayout"
-    >
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/themeDetailTextView"
+        android:id="@+id/themeDetailTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:textSize="15sp"
         android:text="Theme:" />
 
-    <EditText
-        android:id="@+id/themeDetailEditText"
+    <TextView
+        android:id="@+id/themeDetailText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/themeDetailTextView"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:ems="15"
-        android:inputType="textShortMessage"
-        android:maxLength="20"
-        android:enabled="true"/>
+        android:layout_below="@+id/themeDetailTitle"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/textDetailTextView"
-        android:layout_below="@+id/themeDetailEditText"
+        android:id="@+id/textDetailTitle"
+        android:layout_below="@+id/themeDetailText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:textSize="15sp"
         android:text="Text:" />
 
-    <EditText
-        android:id="@+id/textDetailEditText"
+    <TextView
+        android:id="@+id/textDetailText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textDetailTextView"
+        android:layout_below="@+id/textDetailTitle"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:ems="15"
-        android:inputType="textMultiLine"
-        android:maxLength="100"
-        android:enabled="true"/>
-
-    <Button
-        android:layout_centerHorizontal="true"
-        android:id="@+id/saveNoteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Save" />
-
-
+        android:layout_marginTop="10dp"
+        android:maxEms="15"
+        android:textSize="15sp" />
 
 </RelativeLayout>

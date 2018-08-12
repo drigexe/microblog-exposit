@@ -4,8 +4,6 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
-import java.util.ArrayList;
-
 public class SharedViewModel extends ViewModel {
 
     private final MutableLiveData<Note> note = new MutableLiveData<>();
@@ -16,10 +14,6 @@ public class SharedViewModel extends ViewModel {
 
     public LiveData<Note> getNote() {
         return this.note;
-    }
-
-    public void clearNote() {
-        this.note.setValue(null);
     }
 
 }

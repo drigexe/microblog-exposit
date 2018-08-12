@@ -6,23 +6,17 @@
     android:id="@+id/recycler_parent_layout">
 
     <TextView
-        android:id="@+id/noteThemeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        />
-
-    <TextView
         android:id="@+id/noteDateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
         android:textSize="15sp" />
 
-
+    <TextView
+        android:id="@+id/noteThemeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/noteDateText"
+        android:textSize="20sp"
+        />
 
 </RelativeLayout>

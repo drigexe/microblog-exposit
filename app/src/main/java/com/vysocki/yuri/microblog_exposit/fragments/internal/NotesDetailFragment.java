@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vysocki.yuri.microblog_exposit.MainActivity;
@@ -25,9 +26,10 @@ public class NotesDetailFragment extends Fragment {
 
     SharedViewModel viewModel;
 
-    Button saveButton;
-    EditText noteThemeText;
-    EditText noteText;
+    TextView theme;
+    TextView themeTitle;
+    TextView text;
+    TextView textTitle;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,18 +43,33 @@ public class NotesDetailFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_notes_detail, container, false);
 
-        noteThemeText = view.findViewById(R.id.themeDetailEditText);
-        noteText = view.findViewById(R.id.textDetailEditText);
-        saveButton = view.findViewById(R.id.saveNoteButton);
+        theme = view.findViewById(R.id.themeDetailText);
+        themeTitle = view.findViewById(R.id.themeDetailTitle);
+        text = view.findViewById(R.id.textDetailText);
+        textTitle = view.findViewById(R.id.textDetailTitle);
 
-        saveButton.setOnClickListener(new View.OnClickListener() {
+        if (viewModel.getNote().getValue() == null) {
+            themeTitle.setVisibility(View.INVISIBLE);
+            textTitle.setVisibility(View.INVISIBLE);
+        }
+
+        Observer<Note> noteObserver = new Observer<Note>() {
             @Override
-            public void onClick(View v) {
-                //need to send data to the server here
-                Toast.makeText(getActivity(),"Note created!", Toast.LENGTH_SHORT).show();
-                lockUi(true);
+            public void onChanged(@Nullable Note note) {
+                if (viewModel.getNote().getValue() != null) {
+                    //when note is set
+                    themeTitle.setVisibility(View.VISIBLE);
+                    textTitle.setVisibility(View.VISIBLE);
+                    theme.setText(note.getNoteTheme());
+                    text.setText(note.getNoteText());
+                } else {
+                    // when note is cleared
+                    Toast.makeText(getActivity(),"An error has occurred", Toast.LENGTH_LONG).show();
+                }
             }
-        });
+        };
+
+        viewModel.getNote().observe(this, noteObserver);
 
         return view;
     }
@@ -63,57 +80,4 @@ public class NotesDetailFragment extends Fragment {
         ((MainActivity)getActivity()).toggleDrawer(false);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        if (viewModel.getNote().getValue() != null) {
-            lockUi(true);
-        } else {
-            lockUi(false);
-        }
-
-        Observer<Note> noteObserver = new Observer<Note>() {
-            @Override
-            public void onChanged(@Nullable Note note) {
-                if (viewModel.getNote().getValue() != null) {
-                    //when note is set
-                    lockUi(true);
-                    noteThemeText.setText(note.getNoteTheme());
-                    noteText.setText(note.getNoteText());
-                } else {
-                    // when note is cleared
-                    clearEditTexts();
-                    lockUi(false);
-                }
-            }
-        };
-
-        viewModel.getNote().observe(this, noteObserver);
-
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        viewModel.clearNote();
-        Log.i("ONPAUSE", "ONPAUSE HAPPENED");
-    }
-
-    private void clearEditTexts() {
-        noteThemeText.setText(null);
-        noteText.setText(null);
-    }
-
-    private void lockUi (Boolean locked) {
-        if (locked) {
-            noteThemeText.setEnabled(false);
-            noteText.setEnabled(false);
-            saveButton.setVisibility(View.INVISIBLE);
-        } else {
-            noteThemeText.setEnabled(true);
-            noteText.setEnabled(true);
-            saveButton.setVisibility(View.VISIBLE);
-        }
-    }
 }
