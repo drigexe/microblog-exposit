@@ -82,13 +82,13 @@ public class NotesListFragment extends Fragment {
 
                         if (getResources().getBoolean(R.bool.twoPaneMode)) {
                             Note note = new Note();
-                            note.setNoteText("lalalasdddddddddddddddddddsdsdsdddddddddddddddddddddddddddddddddddddddddd");
-                            note.setNoteTheme("Bakana");
+                            note.setText("lalalasdddddddddddddddddddsdsdsdddddddddddddddddddddddddddddddddddddddddd");
+                            note.setTheme("Bakana");
                             viewModel.setNote(note);
                         } else {
                             Note note = new Note();
-                            note.setNoteText("lalaladddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
-                            note.setNoteTheme("Bakana");
+                            note.setText("lalaladddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
+                            note.setTheme("Bakana");
                             viewModel.setNote(note);
                             Navigation.findNavController(view).navigate(R.id.action_notesExternalFragment_to_notesDetailExternalFragment);
                         }

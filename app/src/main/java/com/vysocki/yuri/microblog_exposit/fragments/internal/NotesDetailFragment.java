@@ -6,12 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,8 +16,6 @@ import com.vysocki.yuri.microblog_exposit.MainActivity;
 import com.vysocki.yuri.microblog_exposit.Note;
 import com.vysocki.yuri.microblog_exposit.R;
 import com.vysocki.yuri.microblog_exposit.SharedViewModel;
-
-import androidx.navigation.Navigation;
 
 public class NotesDetailFragment extends Fragment {
 
@@ -60,8 +55,8 @@ public class NotesDetailFragment extends Fragment {
                     //when note is set
                     themeTitle.setVisibility(View.VISIBLE);
                     textTitle.setVisibility(View.VISIBLE);
-                    theme.setText(note.getNoteTheme());
-                    text.setText(note.getNoteText());
+                    theme.setText(note.getTheme());
+                    text.setText(note.getText());
                 } else {
                     // when note is cleared
                     Toast.makeText(getActivity(),"An error has occurred", Toast.LENGTH_LONG).show();

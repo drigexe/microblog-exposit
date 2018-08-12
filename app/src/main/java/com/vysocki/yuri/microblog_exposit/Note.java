@@ -4,41 +4,42 @@ import java.util.Date;
 
 public class Note {
 
-    private int userId;
-    private String noteTheme;
-    private String noteText;
-    private Date noteDate;
+    private String theme;
+    private String text;
+    private Date date;
 
-    public int getUserId() {
-        return userId;
+    public Note() {
+
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public Note(String noteid, String theme, String text, Date date) {
+        this.theme = theme;
+        this.text = text;
+        this.date = date;
     }
 
-    public String getNoteTheme() {
-        return noteTheme;
+    public String getTheme() {
+        return theme;
     }
 
-    public void setNoteTheme(String noteTheme) {
-        this.noteTheme = noteTheme;
+    public void setTheme(String theme) {
+        this.theme = theme;
     }
 
-    public String getNoteText() {
-        return noteText;
+    public String getText() {
+        return text;
     }
 
-    public void setNoteText(String noteText) {
-        this.noteText = noteText;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public Date getNoteDate() {
-        return noteDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setNoteDate(Date noteDate) {
-        this.noteDate = noteDate;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
 }
