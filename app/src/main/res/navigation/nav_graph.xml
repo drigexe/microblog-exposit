@@ -36,6 +36,18 @@
     </fragment>
 
     <fragment
+        android:id="@+id/newNoteExternalFragment"
+        android:name="com.vysocki.yuri.microblog_exposit.fragments.external.NewNoteExternalFragment"
+        android:label="fragment_new_note"
+        tools:layout="@layout/fragment_external">
+        <action
+            android:id="@+id/action_newNoteExternalFragment_to_notesExternalFragment"
+            app:destination="@id/notesExternalFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+    </fragment>
+
+    <fragment
         android:id="@+id/notesDetailExternalFragment"
         android:name="com.vysocki.yuri.microblog_exposit.fragments.external.NotesDetailExternalFragment"
         android:label="fragment_notes_detail"
