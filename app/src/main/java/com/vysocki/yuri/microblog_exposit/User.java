@@ -9,7 +9,6 @@ public class User {
     private String lastname;
 
     public User() {
-
     }
 
     public User(String age, String email, String firstname, String gender, String lastname) {
