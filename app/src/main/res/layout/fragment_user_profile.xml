@@ -34,7 +34,6 @@
         android:layout_toEndOf="@+id/userLastnameTitle"
         android:layout_toRightOf="@+id/userLastnameTitle"
         android:layout_above="@+id/userFirstnameText"
-        android:text="EMAIL"
         android:textSize="20sp"/>
 
     <TextView
@@ -58,7 +57,6 @@
         android:layout_toEndOf="@+id/userLastnameTitle"
         android:layout_toRightOf="@+id/userLastnameTitle"
         android:layout_above="@+id/userLastnameText"
-        android:text="FIRSTNAME"
         android:textSize="20sp"/>
 
     <TextView
@@ -82,7 +80,6 @@
         android:layout_toEndOf="@+id/userLastnameTitle"
         android:layout_toRightOf="@+id/userLastnameTitle"
         android:layout_centerVertical="true"
-        android:text="LASTNAME"
         android:textSize="20sp"/>
 
     <TextView
@@ -106,7 +103,6 @@
         android:layout_toEndOf="@+id/userLastnameTitle"
         android:layout_toRightOf="@+id/userLastnameTitle"
         android:layout_below="@+id/userLastnameText"
-        android:text="GENDER"
         android:textSize="20sp"/>
 
     <TextView
@@ -130,7 +126,6 @@
         android:layout_toEndOf="@+id/userLastnameTitle"
         android:layout_toRightOf="@+id/userLastnameTitle"
         android:layout_below="@+id/userGenderText"
-        android:text="AGE"
         android:textSize="20sp"/>
 
 </RelativeLayout>
