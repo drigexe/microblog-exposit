@@ -112,8 +112,13 @@ public class SignUpFragment extends Fragment {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser firebaseUser = mAuth.getCurrentUser();
                             String uId = firebaseUser.getUid();
-                            mRef.child(uId).setValue(user);
-                            Navigation.findNavController(view).navigate(R.id.action_signUpExternalFragment_to_notesExternalFragment);
+                            mRef.child(uId).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Navigation.findNavController(view).navigate(R.id.action_signUpExternalFragment_to_notesExternalFragment);
+                                }
+                            });
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());

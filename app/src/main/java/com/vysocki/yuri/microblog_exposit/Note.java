@@ -12,7 +12,7 @@ public class Note {
 
     }
 
-    public Note(String noteid, String theme, String text, Date date) {
+    public Note(String theme, String text, Date date) {
         this.theme = theme;
         this.text = text;
         this.date = date;
