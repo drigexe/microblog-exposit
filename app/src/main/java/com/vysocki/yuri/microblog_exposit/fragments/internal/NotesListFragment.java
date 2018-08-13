@@ -11,24 +11,40 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
 import com.vysocki.yuri.microblog_exposit.MainActivity;
 import com.vysocki.yuri.microblog_exposit.Note;
 import com.vysocki.yuri.microblog_exposit.NotesRecyclerViewAdapter;
 import com.vysocki.yuri.microblog_exposit.R;
 import com.vysocki.yuri.microblog_exposit.RecyclerItemClickListener;
 import com.vysocki.yuri.microblog_exposit.SharedViewModel;
+import com.vysocki.yuri.microblog_exposit.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import androidx.navigation.Navigation;
 
 public class NotesListFragment extends Fragment {
 
+    private FirebaseAuth mAuth;
+    private DatabaseReference mRef;
+
     private static final String TAG = "NotesListFragment";
 
     private ArrayList<String> mNoteThemes = new ArrayList<>();
     private ArrayList<String> mNoteDates = new ArrayList<>();
+    private ArrayList<Note> noteArrayList = new ArrayList<>();
 
     private SharedViewModel viewModel;
 
@@ -37,7 +53,6 @@ public class NotesListFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         viewModel = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
-        initNoteArrays();
 
     }
 
@@ -46,7 +61,10 @@ public class NotesListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notes_list, container, false);
 
-        initRecyclerView(view);
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+        String uId = firebaseUser.getUid();
+        mRef = FirebaseDatabase.getInstance().getReference().child("notes").child(uId);
 
         return view;
     }
@@ -57,14 +75,20 @@ public class NotesListFragment extends Fragment {
         ((MainActivity)getActivity()).toggleDrawer(false);
     }
 
-    public void initNoteArrays() {
-        mNoteThemes.add("item 0");
-        mNoteThemes.add("item 1");
-        mNoteThemes.add("item 2");
+    @Override
+    public void onStart() {
+        super.onStart();
+        mRef.addValueEventListener(noteListener);
+    }
 
-        mNoteDates.add("date 0");
-        mNoteDates.add("date 1");
-        mNoteDates.add("date 2");
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (noteListener != null) {
+            mRef.removeEventListener(noteListener);
+        }
+        mNoteDates.clear();
+        mNoteThemes.clear();
     }
 
     public void initRecyclerView(View view) {
@@ -81,14 +105,10 @@ public class NotesListFragment extends Fragment {
                     public void onItemClick(View view, int position) {
 
                         if (getResources().getBoolean(R.bool.twoPaneMode)) {
-                            Note note = new Note();
-                            note.setText("lalalasdddddddddddddddddddsdsdsdddddddddddddddddddddddddddddddddddddddddd");
-                            note.setTheme("Bakana");
+                            Note note = noteArrayList.get(position);
                             viewModel.setNote(note);
                         } else {
-                            Note note = new Note();
-                            note.setText("lalaladddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
-                            note.setTheme("Bakana");
+                            Note note = noteArrayList.get(position);
                             viewModel.setNote(note);
                             Navigation.findNavController(view).navigate(R.id.action_notesExternalFragment_to_notesDetailExternalFragment);
                         }
@@ -102,5 +122,23 @@ public class NotesListFragment extends Fragment {
                 })
         );
     }
+
+    ValueEventListener noteListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                Note note = ds.getValue(Note.class);
+                noteArrayList.add(note);
+                mNoteDates.add(note.getDate().toString());
+                mNoteThemes.add(note.getTheme());
+            }
+            initRecyclerView(getView());
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    };
 
 }
