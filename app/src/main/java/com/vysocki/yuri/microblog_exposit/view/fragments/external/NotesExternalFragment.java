@@ -1,23 +1,19 @@
-package com.vysocki.yuri.microblog_exposit.fragments.external;
+package com.vysocki.yuri.microblog_exposit.view.fragments.external;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.vysocki.yuri.microblog_exposit.MainActivity;
 import com.vysocki.yuri.microblog_exposit.R;
-import com.vysocki.yuri.microblog_exposit.fragments.external.ExternalFragment;
-import com.vysocki.yuri.microblog_exposit.fragments.internal.NotesDetailFragment;
-import com.vysocki.yuri.microblog_exposit.fragments.internal.NotesListFragment;
+import com.vysocki.yuri.microblog_exposit.view.fragments.internal.NotesDetailFragment;
+import com.vysocki.yuri.microblog_exposit.view.fragments.internal.NotesListFragment;
 
 public class NotesExternalFragment extends ExternalFragment {
 
-    FragmentTransaction transaction;
     private ViewGroup secondContainerLayout;
 
     @Override
@@ -26,14 +22,13 @@ public class NotesExternalFragment extends ExternalFragment {
 
         //load the NotesListFragment
         NotesListFragment notesListFragment = new NotesListFragment();
-        setInternalFragment(R.id.fragment_container, notesListFragment, transaction);
+        setInternalFragment(R.id.fragment_container, notesListFragment);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_external, container, false);
-
 
         //if device is in landscape orientation then load the NotesDetailFragment
         secondContainerLayout = view.findViewById(R.id.fragment_second_container);
@@ -48,7 +43,7 @@ public class NotesExternalFragment extends ExternalFragment {
             secondContainerLayout.setLayoutParams(param);
 
             NotesDetailFragment notesDetailFragment = new NotesDetailFragment();
-            setInternalFragment(R.id.fragment_second_container, notesDetailFragment, transaction);
+            setInternalFragment(R.id.fragment_second_container, notesDetailFragment);
         }
 
         return view;

@@ -1,4 +1,4 @@
-package com.vysocki.yuri.microblog_exposit;
+package com.vysocki.yuri.microblog_exposit.model;
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ public class Note {
     private Date date;
 
     public Note() {
-
+        // Default constructor required for calls to DataSnapshot.getValue(Note.class)
     }
 
     public Note(String theme, String text, Date date) {

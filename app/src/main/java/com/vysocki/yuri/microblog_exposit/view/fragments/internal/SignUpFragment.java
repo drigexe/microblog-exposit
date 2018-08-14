@@ -1,4 +1,4 @@
-package com.vysocki.yuri.microblog_exposit.fragments.internal;
+package com.vysocki.yuri.microblog_exposit.view.fragments.internal;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.vysocki.yuri.microblog_exposit.R;
-import com.vysocki.yuri.microblog_exposit.User;
+import com.vysocki.yuri.microblog_exposit.model.User;
 
 import androidx.navigation.Navigation;
 

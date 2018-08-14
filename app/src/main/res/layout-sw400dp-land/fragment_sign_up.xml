@@ -6,58 +6,77 @@
         android:id="@+id/emailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_above="@+id/emailRegEditText"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:text="Email:"/>
 
     <EditText
         android:id="@+id/emailRegEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
         android:ems="15"
-        android:layout_centerInParent="true"
-        android:layout_above="@+id/passTextView"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_below="@+id/emailTextView"
         android:inputType="textEmailAddress" />
 
     <TextView
         android:id="@+id/passTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/passRegEditText"
-        android:layout_centerInParent="true"
+        android:layout_marginBottom="3dp"
+        android:layout_below="@+id/emailRegEditText"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:text="Password:"/>
 
     <EditText
         android:id="@+id/passRegEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
         android:ems="15"
-        android:layout_centerInParent="true"
-        android:layout_above="@+id/passConfirmTextView"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_below="@+id/passTextView"
         android:inputType="textPassword" />
 
     <TextView
         android:id="@+id/passConfirmTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_above="@+id/passConfirmRegEditText"
+        android:layout_below="@+id/emailRegEditText"
+        android:layout_marginBottom="3dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/passRegEditText"
+        android:layout_toEndOf="@+id/passRegEditText"
         android:text="Confirm your password:"/>
 
     <EditText
         android:id="@+id/passConfirmRegEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/passConfirmTextView"
+        android:layout_marginBottom="3dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_toRightOf="@+id/passRegEditText"
+        android:layout_toEndOf="@+id/passRegEditText"
         android:ems="15"
-        android:layout_centerInParent="true"
-        android:layout_above="@+id/firstNameTextView"
         android:inputType="textPassword" />
 
     <TextView
         android:id="@+id/firstNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_below="@+id/passRegEditText"
+        android:layout_marginBottom="3dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:text="First name:"/>
 
     <EditText
@@ -65,7 +84,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="15"
-        android:layout_centerInParent="true"
+        android:layout_marginBottom="3dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
         android:layout_below="@+id/firstNameTextView"
         android:inputType="textPersonName" />
 
@@ -73,8 +94,12 @@
         android:id="@+id/lastNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/firstNameEditText"
-        android:layout_centerInParent="true"
+        android:layout_below="@+id/passConfirmRegEditText"
+        android:layout_marginBottom="3dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/firstNameEditText"
+        android:layout_toEndOf="@+id/firstNameEditText"
         android:text="Last name:"/>
 
     <EditText
@@ -82,14 +107,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="15"
-        android:layout_centerInParent="true"
         android:layout_below="@+id/lastNameTextView"
+        android:layout_marginBottom="3dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_toRightOf="@+id/firstNameEditText"
+        android:layout_toEndOf="@+id/firstNameEditText"
         android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/genderTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/lastNameEditText"
         android:layout_toEndOf="@+id/ageEditText"
         android:layout_toRightOf="@+id/ageEditText"
@@ -99,9 +131,12 @@
         android:id="@+id/genderRadio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/genderTextView"
-        android:layout_toEndOf="@+id/ageEditText"
-        android:layout_toRightOf="@+id/ageEditText">
+        android:layout_below="@+id/firstNameEditText"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/genderTextView"
+        android:layout_toRightOf="@+id/genderTextView">
         <RadioButton
             android:id="@+id/radio_male"
             android:layout_width="match_parent"
@@ -117,9 +152,9 @@
         android:id="@+id/maleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="11dp"
         android:layout_marginBottom="5dp"
-        android:layout_below="@+id/genderTextView"
+        android:layout_below="@+id/firstNameEditText"
         android:layout_toEndOf="@+id/genderRadio"
         android:layout_toRightOf="@+id/genderRadio"
         android:text="Male"/>
@@ -138,21 +173,23 @@
         android:id="@+id/ageTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lastNameEditText"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
+        android:layout_below="@+id/firstNameEditText"
+        android:layout_marginTop="13dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:text="Age:"/>
 
     <EditText
         android:id="@+id/ageEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="3dp"
+        android:layout_toEndOf="@+id/ageTextView"
+        android:layout_toRightOf="@+id/ageTextView"
         android:ems="3"
-        android:layout_marginLeft="3dp"
-        android:layout_marginStart="3dp"
-        android:layout_below="@+id/ageTextView"
+        android:layout_marginLeft="6dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/firstNameEditText"
         android:inputType="number" />
 
     <Button
@@ -161,8 +198,9 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/genderRadio"
         android:layout_toRightOf="@+id/genderRadio"
-        android:layout_marginLeft="75dp"
-        android:layout_marginStart="75dp"
+        android:layout_marginLeft="140dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="7dp"
         android:layout_below="@+id/lastNameEditText"
         android:text="Sign up"/>
 

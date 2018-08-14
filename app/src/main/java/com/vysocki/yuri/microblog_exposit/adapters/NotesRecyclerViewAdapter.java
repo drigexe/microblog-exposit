@@ -1,4 +1,4 @@
-package com.vysocki.yuri.microblog_exposit;
+package com.vysocki.yuri.microblog_exposit.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.vysocki.yuri.microblog_exposit.R;
 
 import java.util.ArrayList;
 

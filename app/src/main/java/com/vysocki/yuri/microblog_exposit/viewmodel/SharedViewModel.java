@@ -1,8 +1,10 @@
-package com.vysocki.yuri.microblog_exposit;
+package com.vysocki.yuri.microblog_exposit.viewmodel;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
+
+import com.vysocki.yuri.microblog_exposit.model.Note;
 
 public class SharedViewModel extends ViewModel {
 

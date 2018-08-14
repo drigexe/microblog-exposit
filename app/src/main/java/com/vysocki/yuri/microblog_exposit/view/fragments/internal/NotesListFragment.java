@@ -1,4 +1,4 @@
-package com.vysocki.yuri.microblog_exposit.fragments.internal;
+package com.vysocki.yuri.microblog_exposit.view.fragments.internal;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,19 +18,15 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
-import com.vysocki.yuri.microblog_exposit.MainActivity;
-import com.vysocki.yuri.microblog_exposit.Note;
-import com.vysocki.yuri.microblog_exposit.NotesRecyclerViewAdapter;
+import com.vysocki.yuri.microblog_exposit.view.activities.MainActivity;
+import com.vysocki.yuri.microblog_exposit.model.Note;
+import com.vysocki.yuri.microblog_exposit.adapters.NotesRecyclerViewAdapter;
 import com.vysocki.yuri.microblog_exposit.R;
-import com.vysocki.yuri.microblog_exposit.RecyclerItemClickListener;
-import com.vysocki.yuri.microblog_exposit.SharedViewModel;
-import com.vysocki.yuri.microblog_exposit.User;
+import com.vysocki.yuri.microblog_exposit.listeners.RecyclerItemClickListener;
+import com.vysocki.yuri.microblog_exposit.viewmodel.SharedViewModel;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 import androidx.navigation.Navigation;
 

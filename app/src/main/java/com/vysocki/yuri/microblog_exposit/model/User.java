@@ -1,4 +1,4 @@
-package com.vysocki.yuri.microblog_exposit;
+package com.vysocki.yuri.microblog_exposit.model;
 
 public class User {
 
@@ -9,6 +9,7 @@ public class User {
     private String lastname;
 
     public User() {
+        // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
     public User(String age, String email, String firstname, String gender, String lastname) {

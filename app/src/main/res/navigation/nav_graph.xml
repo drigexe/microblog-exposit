@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginScreenExternalFragment"
-        android:name="com.vysocki.yuri.microblog_exposit.fragments.external.LoginScreenExternalFragment"
+        android:name="com.vysocki.yuri.microblog_exposit.view.fragments.external.LoginScreenExternalFragment"
         android:label="fragment_login_screen"
         tools:layout="@layout/fragment_external">
         <action
@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/notesExternalFragment"
-        android:name="com.vysocki.yuri.microblog_exposit.fragments.external.NotesExternalFragment"
+        android:name="com.vysocki.yuri.microblog_exposit.view.fragments.external.NotesExternalFragment"
         android:label="fragment_notes_list"
         tools:layout="@layout/fragment_external">
         <action
@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/newNoteExternalFragment"
-        android:name="com.vysocki.yuri.microblog_exposit.fragments.external.NewNoteExternalFragment"
+        android:name="com.vysocki.yuri.microblog_exposit.view.fragments.external.NewNoteExternalFragment"
         android:label="fragment_new_note"
         tools:layout="@layout/fragment_external">
         <action
@@ -49,19 +49,19 @@
 
     <fragment
         android:id="@+id/notesDetailExternalFragment"
-        android:name="com.vysocki.yuri.microblog_exposit.fragments.external.NotesDetailExternalFragment"
+        android:name="com.vysocki.yuri.microblog_exposit.view.fragments.external.NotesDetailExternalFragment"
         android:label="fragment_notes_detail"
         tools:layout="@layout/fragment_external"/>
 
     <fragment
         android:id="@+id/userProfileExternalFragment"
-        android:name="com.vysocki.yuri.microblog_exposit.fragments.external.UserProfileExternalFragment"
+        android:name="com.vysocki.yuri.microblog_exposit.view.fragments.external.UserProfileExternalFragment"
         android:label="fragment_user_profile"
         tools:layout="@layout/fragment_external" />
 
     <fragment
         android:id="@+id/signUpExternalFragment"
-        android:name="com.vysocki.yuri.microblog_exposit.fragments.external.SignUpExternalFragment"
+        android:name="com.vysocki.yuri.microblog_exposit.view.fragments.external.SignUpExternalFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_external">
         <action

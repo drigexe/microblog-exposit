@@ -1,4 +1,4 @@
-package com.vysocki.yuri.microblog_exposit.fragments.internal;
+package com.vysocki.yuri.microblog_exposit.view.fragments.internal;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.vysocki.yuri.microblog_exposit.MainActivity;
+import com.vysocki.yuri.microblog_exposit.view.activities.MainActivity;
 import com.vysocki.yuri.microblog_exposit.R;
 
 import androidx.navigation.Navigation;
@@ -108,7 +108,7 @@ public class LoginScreenFragment extends Fragment {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
-                    ((MainActivity)getActivity()).finish();
+                    (getActivity()).finish();
                     return true;
                 }
                 return false;

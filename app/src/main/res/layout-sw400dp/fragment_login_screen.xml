@@ -6,7 +6,7 @@
         android:id="@+id/emailEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="15"
         android:layout_marginBottom="5dp"
         android:layout_centerInParent="true"
         android:layout_above="@+id/passwordEditText"
@@ -17,7 +17,7 @@
         android:id="@+id/passwordEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="15"
         android:layout_centerInParent="true"
         android:inputType="textPassword"
         android:layout_marginTop="5dp"
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_below="@+id/loginButton"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:text="Sign up"/>
 
 </RelativeLayout>

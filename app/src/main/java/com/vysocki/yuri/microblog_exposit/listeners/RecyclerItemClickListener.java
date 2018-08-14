@@ -1,4 +1,4 @@
-package com.vysocki.yuri.microblog_exposit;
+package com.vysocki.yuri.microblog_exposit.listeners;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +11,6 @@ public class RecyclerItemClickListener implements RecyclerView.OnItemTouchListen
 
     public interface OnItemClickListener {
         public void onItemClick(View view, int position);
-
         public void onLongItemClick(View view, int position);
     }
 

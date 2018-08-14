@@ -11,7 +11,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:textSize="15sp"
         android:text="Theme:" />
 
@@ -23,7 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:ems="12"
+        android:ems="17"
         android:inputType="textShortMessage"
         android:maxLength="20" />
 
@@ -35,7 +35,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:textSize="15sp"
         android:text="Text:" />
 
@@ -47,7 +47,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:ems="12"
+        android:ems="17"
         android:inputType="textMultiLine"
         android:maxLength="100" />
 

@@ -1,4 +1,4 @@
-package com.vysocki.yuri.microblog_exposit.fragments.internal;
+package com.vysocki.yuri.microblog_exposit.view.fragments.internal;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -12,10 +12,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.vysocki.yuri.microblog_exposit.MainActivity;
-import com.vysocki.yuri.microblog_exposit.Note;
+import com.vysocki.yuri.microblog_exposit.view.activities.MainActivity;
+import com.vysocki.yuri.microblog_exposit.model.Note;
 import com.vysocki.yuri.microblog_exposit.R;
-import com.vysocki.yuri.microblog_exposit.SharedViewModel;
+import com.vysocki.yuri.microblog_exposit.viewmodel.SharedViewModel;
 
 public class NotesDetailFragment extends Fragment {
 

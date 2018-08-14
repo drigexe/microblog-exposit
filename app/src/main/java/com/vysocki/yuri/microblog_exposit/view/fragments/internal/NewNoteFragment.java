@@ -1,4 +1,4 @@
-package com.vysocki.yuri.microblog_exposit.fragments.internal;
+package com.vysocki.yuri.microblog_exposit.view.fragments.internal;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,8 +17,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.vysocki.yuri.microblog_exposit.MainActivity;
-import com.vysocki.yuri.microblog_exposit.Note;
+import com.vysocki.yuri.microblog_exposit.view.activities.MainActivity;
+import com.vysocki.yuri.microblog_exposit.model.Note;
 import com.vysocki.yuri.microblog_exposit.R;
 
 import java.util.Calendar;

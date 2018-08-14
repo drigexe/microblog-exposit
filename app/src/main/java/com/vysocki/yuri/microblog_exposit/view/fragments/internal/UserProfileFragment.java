@@ -1,4 +1,4 @@
-package com.vysocki.yuri.microblog_exposit.fragments.internal;
+package com.vysocki.yuri.microblog_exposit.view.fragments.internal;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -17,9 +16,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.vysocki.yuri.microblog_exposit.MainActivity;
+import com.vysocki.yuri.microblog_exposit.view.activities.MainActivity;
 import com.vysocki.yuri.microblog_exposit.R;
-import com.vysocki.yuri.microblog_exposit.User;
+import com.vysocki.yuri.microblog_exposit.model.User;
 
 public class UserProfileFragment extends Fragment {
 

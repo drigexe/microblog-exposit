@@ -1,4 +1,4 @@
-package com.vysocki.yuri.microblog_exposit.fragments.external;
+package com.vysocki.yuri.microblog_exposit.view.fragments.external;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,9 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.vysocki.yuri.microblog_exposit.R;
-import com.vysocki.yuri.microblog_exposit.fragments.internal.NewNoteFragment;
+import com.vysocki.yuri.microblog_exposit.view.fragments.internal.LoginScreenFragment;
 
-public class NewNoteExternalFragment extends ExternalFragment {
+public class LoginScreenExternalFragment extends ExternalFragment {
 
     FragmentTransaction transaction;
 
@@ -19,8 +19,8 @@ public class NewNoteExternalFragment extends ExternalFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        NewNoteFragment newNoteFragment = new NewNoteFragment();
-        setInternalFragment(R.id.fragment_container, newNoteFragment, transaction);
+        LoginScreenFragment loginScreenFragment = new LoginScreenFragment();
+        setInternalFragment(R.id.fragment_container, loginScreenFragment);
     }
 
     @Nullable
@@ -30,4 +30,5 @@ public class NewNoteExternalFragment extends ExternalFragment {
 
         return view;
     }
+
 }
