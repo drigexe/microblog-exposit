@@ -36,7 +36,7 @@ public class NotesDetailFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_notes_detail, container, false);
+        View view = inflater.inflate(R.layout.fragment_notes_detail, container, false);
 
         theme = view.findViewById(R.id.themeDetailText);
         themeTitle = view.findViewById(R.id.themeDetailTitle);

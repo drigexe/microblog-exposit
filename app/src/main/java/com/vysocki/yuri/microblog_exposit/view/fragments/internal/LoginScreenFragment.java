@@ -35,7 +35,7 @@ public class LoginScreenFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_login_screen, container, false);
+        View view = inflater.inflate(R.layout.fragment_login_screen, container, false);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -53,12 +53,10 @@ public class LoginScreenFragment extends Fragment {
                 if (user != null) {
                     //User signed in
                     Log.d(TAG, "onAuthStateChanged: signed_in:" + user.getUid());
-                    Toast.makeText(getActivity(), "Signed in with: " + user.getEmail(), Toast.LENGTH_SHORT).show();
-                    Navigation.findNavController(view).navigate(R.id.action_loginScreenExternalFragment_to_notesExternalFragment);
+                    Navigation.findNavController(getView()).navigate(R.id.action_loginScreenExternalFragment_to_notesExternalFragment);
                 } else {
                     //User signed out
                     Log.d(TAG, "onAuthStateChanged: signed_out");
-                    Toast.makeText(getActivity(), "Signed out ", Toast.LENGTH_SHORT).show();
                 }
             }
         };
@@ -79,7 +77,7 @@ public class LoginScreenFragment extends Fragment {
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_loginScreenExternalFragment_to_signUpExternalFragment);
+                Navigation.findNavController(getView()).navigate(R.id.action_loginScreenExternalFragment_to_signUpExternalFragment);
             }
         });
 
@@ -96,17 +94,12 @@ public class LoginScreenFragment extends Fragment {
     public void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthStateListener);
-
-        if(getView() == null){
-            return;
-        }
-
+        if(getView() == null){ return; }
         getView().setFocusableInTouchMode(true);
         getView().requestFocus();
         getView().setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK){
                     (getActivity()).finish();
                     return true;
@@ -114,7 +107,6 @@ public class LoginScreenFragment extends Fragment {
                 return false;
             }
         });
-
     }
 
     @Override

@@ -52,7 +52,7 @@ public class SignUpFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_sign_up, container, false);
+        View view = inflater.inflate(R.layout.fragment_sign_up, container, false);
 
         mAuth = FirebaseAuth.getInstance();
         mRef = FirebaseDatabase.getInstance().getReference().child("users");
@@ -75,7 +75,7 @@ public class SignUpFragment extends Fragment {
                 getValuesFromFields();
                 if (validation()) {
                     User user = new User(age, email, firstName, gender, lastName);
-                    createAccount(email, password, user, view);
+                    createAccount(email, password, user);
                 } else {
                     Toast.makeText(getActivity(), "Fill the fields correctly", Toast.LENGTH_SHORT).show();
                 }
@@ -101,7 +101,7 @@ public class SignUpFragment extends Fragment {
         age = ageET.getText().toString();
     }
 
-    public void createAccount(String email, String password, final User user, final View view) {
+    public void createAccount(String email, String password, final User user) {
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
@@ -115,7 +115,7 @@ public class SignUpFragment extends Fragment {
                             mRef.child(uId).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    Navigation.findNavController(view).navigate(R.id.action_signUpExternalFragment_to_notesExternalFragment);
+                                    Navigation.findNavController(getView()).navigate(R.id.action_signUpExternalFragment_to_notesExternalFragment);
                                 }
                             });
 

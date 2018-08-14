@@ -42,7 +42,7 @@ public class NewNoteFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_new_note, container, false);
+        View view = inflater.inflate(R.layout.fragment_new_note, container, false);
 
         mAuth = FirebaseAuth.getInstance();
         mRef = FirebaseDatabase.getInstance().getReference().child("notes");
@@ -67,7 +67,7 @@ public class NewNoteFragment extends Fragment {
                             theme.setText(null);
                             text.setText(null);
                             Toast.makeText(getActivity(),"Note created!", Toast.LENGTH_SHORT).show();
-                            Navigation.findNavController(view).navigate(R.id.action_newNoteExternalFragment_to_notesExternalFragment);
+                            Navigation.findNavController(getView()).navigate(R.id.action_newNoteExternalFragment_to_notesExternalFragment);
                         }
                     });
                 }

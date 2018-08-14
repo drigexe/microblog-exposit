@@ -102,7 +102,6 @@ public class NotesListFragment extends Fragment {
                 new RecyclerItemClickListener(getActivity(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-
                         if (getResources().getBoolean(R.bool.twoPaneMode)) {
                             Note note = noteArrayList.get(position);
                             viewModel.setNote(note);
@@ -111,12 +110,10 @@ public class NotesListFragment extends Fragment {
                             viewModel.setNote(note);
                             Navigation.findNavController(view).navigate(R.id.action_notesExternalFragment_to_notesDetailExternalFragment);
                         }
-
                     }
 
                     @Override
                     public void onLongItemClick(View view, int position) {
-
                     }
                 })
         );
