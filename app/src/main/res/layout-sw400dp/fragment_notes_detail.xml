@@ -11,7 +11,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:textSize="25sp"
-        android:text="Theme:" />
+        android:text="@string/details_theme" />
 
     <TextView
         android:id="@+id/themeDetailText"
@@ -34,7 +34,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:textSize="25sp"
-        android:text="Text:" />
+        android:text="@string/details_text" />
 
     <TextView
         android:id="@+id/textDetailText"

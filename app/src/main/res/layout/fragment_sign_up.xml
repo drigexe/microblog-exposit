@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_above="@+id/emailRegEditText"
-        android:text="Email:"/>
+        android:text="@string/signup_email"/>
 
     <EditText
         android:id="@+id/emailRegEditText"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/passRegEditText"
         android:layout_centerInParent="true"
-        android:text="Password:"/>
+        android:text="@string/signup_pass"/>
 
     <EditText
         android:id="@+id/passRegEditText"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_above="@+id/passConfirmRegEditText"
-        android:text="Confirm your password:"/>
+        android:text="@string/signup_pass_confirm"/>
 
     <EditText
         android:id="@+id/passConfirmRegEditText"
@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="First name:"/>
+        android:text="@string/signup_firstname"/>
 
     <EditText
         android:id="@+id/firstNameEditText"
@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/firstNameEditText"
         android:layout_centerInParent="true"
-        android:text="Last name:"/>
+        android:text="@string/signup_lastname"/>
 
     <EditText
         android:id="@+id/lastNameEditText"
@@ -93,7 +93,7 @@
         android:layout_below="@+id/lastNameEditText"
         android:layout_toEndOf="@+id/ageEditText"
         android:layout_toRightOf="@+id/ageEditText"
-        android:text="Gender:"/>
+        android:text="@string/signup_gender"/>
 
     <RadioGroup
         android:id="@+id/genderRadio"
@@ -122,7 +122,7 @@
         android:layout_below="@+id/genderTextView"
         android:layout_toEndOf="@+id/genderRadio"
         android:layout_toRightOf="@+id/genderRadio"
-        android:text="Male"/>
+        android:text="@string/signup_gender_male"/>
 
     <TextView
         android:id="@+id/femaleTextView"
@@ -132,7 +132,7 @@
         android:layout_below="@+id/maleTextView"
         android:layout_toEndOf="@+id/genderRadio"
         android:layout_toRightOf="@+id/genderRadio"
-        android:text="Female"/>
+        android:text="@string/signup_gender_female"/>
 
     <TextView
         android:id="@+id/ageTextView"
@@ -141,7 +141,7 @@
         android:layout_below="@+id/lastNameEditText"
         android:layout_marginStart="3dp"
         android:layout_marginLeft="3dp"
-        android:text="Age:"/>
+        android:text="@string/signup_age"/>
 
     <EditText
         android:id="@+id/ageEditText"
@@ -164,6 +164,6 @@
         android:layout_marginLeft="75dp"
         android:layout_marginStart="75dp"
         android:layout_below="@+id/lastNameEditText"
-        android:text="Sign up"/>
+        android:text="@string/signup_signup_button"/>
 
 </RelativeLayout>

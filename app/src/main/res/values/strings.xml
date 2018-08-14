@@ -1,4 +1,34 @@
 <resources>
     <string name="app_name">Micro blog</string>
+
     <string name="login_button">Log in</string>
+    <string name="signup_button">Sign up</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_pass_hint">Password</string>
+
+    <string name="newnote_theme">Theme:</string>
+    <string name="newnote_text">Text:</string>
+    <string name="newnote_save_button">Save</string>
+
+    <string name="details_theme">Theme:</string>
+    <string name="details_text">Text</string>
+
+    <string name="signup_email">Email:</string>
+    <string name="signup_pass">Password:</string>
+    <string name="signup_pass_confirm">Confirm your password:</string>
+    <string name="signup_firstname">Firstname:</string>
+    <string name="signup_lastname">Lastname:</string>
+    <string name="signup_age">Age:</string>
+    <string name="signup_gender">Gender:</string>
+    <string name="signup_gender_male">Male</string>
+    <string name="signup_gender_female">Female</string>
+    <string name="signup_signup_button">Sign up</string>
+
+    <string name="user_info_textview">User info</string>
+    <string name="user_email">Email:</string>
+    <string name="user_firstname">Firstname:</string>
+    <string name="user_lastname">Lastname:</string>
+    <string name="user_gender">Gender:</string>
+    <string name="user_age">Age:</string>
+
 </resources>

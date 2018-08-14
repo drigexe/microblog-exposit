@@ -11,7 +11,7 @@
         android:layout_centerInParent="true"
         android:layout_above="@+id/passwordEditText"
         android:inputType="textEmailAddress"
-        android:hint="Email"/>
+        android:hint="@string/login_email_hint"/>
 
     <EditText
         android:id="@+id/passwordEditText"
@@ -21,7 +21,7 @@
         android:layout_centerInParent="true"
         android:inputType="textPassword"
         android:layout_marginTop="5dp"
-        android:hint="Password"/>
+        android:hint="@string/login_pass_hint"/>
 
     <Button
         android:id="@+id/loginButton"
@@ -39,6 +39,6 @@
         android:layout_centerInParent="true"
         android:layout_below="@+id/loginButton"
         android:layout_marginTop="10dp"
-        android:text="Sign up"/>
+        android:text="@string/signup_button"/>
 
 </RelativeLayout>

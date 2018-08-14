@@ -13,7 +13,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:textSize="15sp"
-        android:text="Theme:" />
+        android:text="@string/newnote_theme" />
 
     <EditText
         android:id="@+id/themeNewNoteEditText"
@@ -37,7 +37,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:textSize="15sp"
-        android:text="Text:" />
+        android:text="@string/newnote_text" />
 
     <EditText
         android:id="@+id/textNewNoteEditText"
@@ -57,6 +57,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="Save" />
+        android:text="@string/newnote_save_button" />
 
 </RelativeLayout>
