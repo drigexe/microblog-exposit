@@ -1,10 +1,12 @@
 package com.vysocki.yuri.microblog_exposit.view.fragments.internal;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -128,6 +130,10 @@ public class NotesListFragment extends Fragment {
                 mNoteThemes.add(note.getTheme());
             }
             initRecyclerView(getView());
+
+            if (noteArrayList.isEmpty()) {
+                showAlert();
+            }
         }
 
         @Override
@@ -135,5 +141,21 @@ public class NotesListFragment extends Fragment {
 
         }
     };
+
+    public void showAlert() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("You don't have any notes yet!")
+                .setMessage("Why don't you go and add some?")
+                .setIcon(R.drawable.ic_mood_bad)
+                .setCancelable(true)
+                .setNegativeButton("Sure, let's do that!",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Navigation.findNavController(getView()).navigate(R.id.action_notesExternalFragment_to_newNoteExternalFragment);
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
 
 }
