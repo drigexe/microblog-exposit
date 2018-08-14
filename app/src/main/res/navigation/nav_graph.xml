@@ -33,6 +33,11 @@
             app:destination="@id/notesDetailExternalFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+        <action
+            android:id="@+id/action_notesExternalFragment_to_newNoteExternalFragment"
+            app:destination="@id/newNoteExternalFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
     </fragment>
 
     <fragment

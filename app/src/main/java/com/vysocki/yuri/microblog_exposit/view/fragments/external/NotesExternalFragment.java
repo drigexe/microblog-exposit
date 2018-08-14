@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -12,6 +15,8 @@ import com.vysocki.yuri.microblog_exposit.R;
 import com.vysocki.yuri.microblog_exposit.view.fragments.internal.NotesDetailFragment;
 import com.vysocki.yuri.microblog_exposit.view.fragments.internal.NotesListFragment;
 
+import androidx.navigation.Navigation;
+
 public class NotesExternalFragment extends ExternalFragment {
 
     private ViewGroup secondContainerLayout;
@@ -19,6 +24,8 @@ public class NotesExternalFragment extends ExternalFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setHasOptionsMenu(true);
 
         //load the NotesListFragment
         NotesListFragment notesListFragment = new NotesListFragment();
@@ -49,4 +56,15 @@ public class NotesExternalFragment extends ExternalFragment {
         return view;
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.toolbar, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Navigation.findNavController(getView()).navigate(R.id.action_notesExternalFragment_to_newNoteExternalFragment);
+        return super.onOptionsItemSelected(item);
+    }
 }
