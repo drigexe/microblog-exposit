@@ -31,4 +31,17 @@
     <string name="user_gender">Gender:</string>
     <string name="user_age">Age:</string>
 
+    <string name="drawer_home">Home</string>
+    <string name="drawer_add">Add</string>
+    <string name="drawer_profile">Profile</string>
+    <string name="drawer_logout">Logout</string>
+
+    <string name="toast_login_fill_fields">You did not fill in all the fields</string>
+    <string name="toast_signup_fill_fields">You must fill the fields correctly!</string>
+    <string name="toast_signup_auth_failed">Authentication failed</string>
+
+    <string name="alert_noteslist_title">You do not have any notes yet!</string>
+    <string name="alert_noteslist_message">Why dont you go and make some?</string>
+    <string name="alert_noteslist_button">Sure, lets do that!</string>
+
 </resources>

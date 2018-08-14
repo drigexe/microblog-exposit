@@ -4,19 +4,19 @@
 
         <item
             android:id="@+id/notesExternalFragment"
-            android:title="Home" />
+            android:title="@string/drawer_home" />
 
         <item
             android:id="@+id/newNoteExternalFragment"
-            android:title="Add" />
+            android:title="@string/drawer_add" />
 
         <item
             android:id="@+id/userProfileExternalFragment"
-            android:title="Profile" />
+            android:title="@string/drawer_profile" />
 
         <item
             android:id="@+id/loginScreenExternalFragment"
-            android:title="Log out" />
+            android:title="@string/drawer_logout" />
 
     </group>
 </menu>

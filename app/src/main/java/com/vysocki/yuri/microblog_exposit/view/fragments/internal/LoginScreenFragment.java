@@ -69,7 +69,7 @@ public class LoginScreenFragment extends Fragment {
                 if (!email.equals("") && !pass.equals("")) {
                     mAuth.signInWithEmailAndPassword(email, pass);
                 } else {
-                    Toast.makeText(getActivity(), "You didn't fill in all the fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), R.string.toast_login_fill_fields, Toast.LENGTH_SHORT).show();
                 }
             }
         });

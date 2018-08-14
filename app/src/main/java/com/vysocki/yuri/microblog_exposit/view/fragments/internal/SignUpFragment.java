@@ -77,7 +77,7 @@ public class SignUpFragment extends Fragment {
                     User user = new User(age, email, firstName, gender, lastName);
                     createAccount(email, password, user);
                 } else {
-                    Toast.makeText(getActivity(), "Fill the fields correctly", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), R.string.toast_signup_fill_fields, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -122,7 +122,7 @@ public class SignUpFragment extends Fragment {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(getActivity(), "Authentication failed.",
+                            Toast.makeText(getActivity(), R.string.toast_signup_auth_failed,
                                     Toast.LENGTH_SHORT).show();
                         }
 

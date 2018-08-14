@@ -153,11 +153,11 @@ public class NotesListFragment extends Fragment {
 
     public void showAlert() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("You don't have any notes yet!")
-                .setMessage("Why don't you go and add some?")
+        builder.setTitle(R.string.alert_noteslist_title)
+                .setMessage(R.string.alert_noteslist_message)
                 .setIcon(R.drawable.ic_mood_bad)
                 .setCancelable(true)
-                .setNegativeButton("Sure, let's do that!",
+                .setNegativeButton(R.string.alert_noteslist_button,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Navigation.findNavController(getView()).navigate(R.id.action_notesExternalFragment_to_newNoteExternalFragment);
