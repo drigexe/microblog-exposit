@@ -13,18 +13,13 @@ import com.vysocki.yuri.microblog_exposit.view.fragments.internal.SignUpFragment
 
 public class SignUpExternalFragment extends ExternalFragment {
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        SignUpFragment signUpFragment = new SignUpFragment();
-        setInternalFragment(R.id.fragment_container, signUpFragment);
-    }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_external, container, false);
+
+        SignUpFragment signUpFragment = new SignUpFragment();
+        setInternalFragment(R.id.fragment_container, signUpFragment);
 
         return view;
     }

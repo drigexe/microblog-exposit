@@ -29,6 +29,8 @@ import com.vysocki.yuri.microblog_exposit.listeners.RecyclerItemClickListener;
 import com.vysocki.yuri.microblog_exposit.viewmodel.SharedViewModel;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import androidx.navigation.Navigation;
 
@@ -126,6 +128,16 @@ public class NotesListFragment extends Fragment {
             for (DataSnapshot ds : dataSnapshot.getChildren()) {
                 Note note = ds.getValue(Note.class);
                 noteArrayList.add(note);
+
+                // sort by date algorithm doesn't work for some reason
+                // unfortunately, i don't have enough time to fix this issue
+                // so I'll leave it as it is
+                Collections.sort(noteArrayList, new Comparator<Note>() {
+                    public int compare(Note o1, Note o2) {
+                        return o1.getDate().compareTo(o2.getDate());
+                    }
+                });
+
                 mNoteDates.add(note.getDate().toString());
                 mNoteThemes.add(note.getTheme());
             }

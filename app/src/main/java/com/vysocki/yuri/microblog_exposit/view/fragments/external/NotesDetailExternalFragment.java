@@ -12,18 +12,13 @@ import com.vysocki.yuri.microblog_exposit.view.fragments.internal.NotesDetailFra
 
 public class NotesDetailExternalFragment extends ExternalFragment {
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        NotesDetailFragment notesDetailFragment = new NotesDetailFragment();
-        setInternalFragment(R.id.fragment_container, notesDetailFragment);
-    }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_external, container, false);
+
+        NotesDetailFragment notesDetailFragment = new NotesDetailFragment();
+        setInternalFragment(R.id.fragment_container, notesDetailFragment);
 
         return view;
     }

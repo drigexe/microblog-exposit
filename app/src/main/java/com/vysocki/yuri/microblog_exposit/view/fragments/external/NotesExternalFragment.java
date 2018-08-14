@@ -19,36 +19,27 @@ import androidx.navigation.Navigation;
 
 public class NotesExternalFragment extends ExternalFragment {
 
-    private ViewGroup secondContainerLayout;
-
+    @Nullable
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_external, container, false);
 
         setHasOptionsMenu(true);
 
         //load the NotesListFragment
         NotesListFragment notesListFragment = new NotesListFragment();
         setInternalFragment(R.id.fragment_container, notesListFragment);
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_external, container, false);
 
         //if device is in landscape orientation then load the NotesDetailFragment
+        ViewGroup secondContainerLayout;
         secondContainerLayout = view.findViewById(R.id.fragment_second_container);
         if (secondContainerLayout != null) {
-
             LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     0.7f
             );
-
             secondContainerLayout.setLayoutParams(param);
-
             NotesDetailFragment notesDetailFragment = new NotesDetailFragment();
             setInternalFragment(R.id.fragment_second_container, notesDetailFragment);
         }
@@ -64,7 +55,9 @@ public class NotesExternalFragment extends ExternalFragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Navigation.findNavController(getView()).navigate(R.id.action_notesExternalFragment_to_newNoteExternalFragment);
+        if (item.getItemId() == R.id.item_add_note) {
+            Navigation.findNavController(getView()).navigate(R.id.action_notesExternalFragment_to_newNoteExternalFragment);
+        }
         return super.onOptionsItemSelected(item);
     }
 }
